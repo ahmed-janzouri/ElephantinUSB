@@ -1,0 +1,7 @@
+﻿models/
+ollama/
+.DS_Store
+# Ignore downloaded heavy engine binaries & models
+ollama/
+models/*.gguf
+temp/

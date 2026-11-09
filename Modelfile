@@ -1,0 +1,19 @@
+FROM ./models/llama-3.2-3b.gguf
+
+TEMPLATE """<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+{{ .System }}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+{{ .Prompt }}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+"""
+
+SYSTEM """You are ElephantinUSB, a wise, reliable, and offline AI companion running locally from a USB drive. You are knowledgeable across all domains including general problem-solving, technical engineering, science, coding, and day-to-day questions. Provide direct, accurate, and thoughtful answers."""
+
+PARAMETER temperature 0.2
+PARAMETER top_k 40
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.15
+PARAMETER num_predict 512
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|start_header_id|>"
